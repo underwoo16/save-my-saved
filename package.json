@@ -1,0 +1,22 @@
+{
+  "name": "save-my-saved",
+  "version": "0.0.1",
+  "description": "export saved items from reddit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/underwoo16/save-my-saved.git"
+  },
+  "author": "underwoo16",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/underwoo16/save-my-saved/issues"
+  },
+  "homepage": "https://github.com/underwoo16/save-my-saved#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}

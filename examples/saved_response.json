@@ -1,0 +1,20 @@
+{
+  kind: 'Listing',
+  data: {
+    modhash: null,
+    dist: 25,
+    children: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    after: 't3_ef9meb',
+    before: null
+  }
+}
