@@ -63,7 +63,6 @@ async function getSavedListings() {
   return listings;
 }
 
-// todo/enhancement: use map here?
 function parseSavedListings(listings) {
   return listings.map(parseSavedItem);
 };
