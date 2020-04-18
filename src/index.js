@@ -1,11 +1,11 @@
 const fetch = require('node-fetch');
+const fs = require('fs');
 
 // API auth values DO NOT share these
 const client_id = '';
 const secret_id = '';
 const username = '';
 const password = '';
-
 
 // API access values
 const REDDIT_ACCESS_URL = 'https://www.reddit.com/api/v1/access_token';
@@ -17,6 +17,8 @@ const KEYS_TO_SAVE = {
   't3': ['title', 'permalink', 'url'],
   't1': ['link_title', 'permalink']
 };
+const COMMA = ',';
+const NEWLINE = '\n';
 
 async function getJsonResponse(url, options) {
   const response = await fetch(url, options);
@@ -76,11 +78,30 @@ function parseSavedItem(item) {
   return newItem;
 }
 
-// TODO: write a driver that requests listings, parses them, then writes them to csv
-async function printStuff() {
-  const stuff = await getSavedListings();
-  const saved = parseSavedListings(stuff);
-  console.log(saved);
+function convertListingsToCsvString(listings) {
+  let csv = '';
+
+  for (const item of listings) {
+    for (const key of Object.keys(item)) {
+      csv += `${item[key]}${COMMA}`;
+    }
+    csv += NEWLINE;
+  }
+
+  return csv;
 }
 
-printStuff();
+function writeFileCallback(err, data) {
+  if (err) {
+    return console.log(err);
+  }
+}
+
+async function driver() {
+  const savedListings = await getSavedListings();
+  const parsedListings = parseSavedListings(savedListings);
+  const csv = convertListingsToCsvString(parsedListings);
+  fs.writeFile('saved_listings.csv', csv, writeFileCallback);
+}
+
+driver();
