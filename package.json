@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/underwoo16/save-my-saved#readme",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.7"
   }
 }
